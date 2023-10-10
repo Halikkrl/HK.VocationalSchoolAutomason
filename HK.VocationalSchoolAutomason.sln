@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HK.VocationalSchoolAutomason.DataAccess", "HK.VocationalSchoolAutomason.DataAccess\HK.VocationalSchoolAutomason.DataAccess.csproj", "{3F97CED1-4F84-409F-9124-276275D66DFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HK.VocationalSchoolAutomason.Bussiness", "HK.VocationalSchoolAutomason.Bussiness\HK.VocationalSchoolAutomason.Bussiness.csproj", "{E8FD43CB-5D36-4133-A3A6-AFDAD478F9D6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HK.VocationalSchoolAutomason.Dtos", "HK.VocationalSchoolAutomason.Dtos\HK.VocationalSchoolAutomason.Dtos.csproj", "{ADCDB771-A904-42AE-9D77-C276E20DF752}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HK.VocationalSchoolAutomason.Api", "HK.VocationalSchoolAutomason.Api\HK.VocationalSchoolAutomason.Api.csproj", "{A0CE400C-4034-4F4F-97F0-DDA761833D38}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HK.VocationalSchoolAutomason.Entities", "HK.VocationalSchoolAutomason.Entities\HK.VocationalSchoolAutomason.Entities.csproj", "{E0D9E025-AE69-4620-99B2-A4DC5D5E2020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HK.VocationalSchoolAutomason.Common", "HK.VocationalSchoolAutomason.Common\HK.VocationalSchoolAutomason.Common.csproj", "{2851A836-BA81-45E2-BB7F-D19D026EE66B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F97CED1-4F84-409F-9124-276275D66DFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F97CED1-4F84-409F-9124-276275D66DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F97CED1-4F84-409F-9124-276275D66DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F97CED1-4F84-409F-9124-276275D66DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8FD43CB-5D36-4133-A3A6-AFDAD478F9D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8FD43CB-5D36-4133-A3A6-AFDAD478F9D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8FD43CB-5D36-4133-A3A6-AFDAD478F9D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8FD43CB-5D36-4133-A3A6-AFDAD478F9D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADCDB771-A904-42AE-9D77-C276E20DF752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADCDB771-A904-42AE-9D77-C276E20DF752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADCDB771-A904-42AE-9D77-C276E20DF752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADCDB771-A904-42AE-9D77-C276E20DF752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0CE400C-4034-4F4F-97F0-DDA761833D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0CE400C-4034-4F4F-97F0-DDA761833D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0CE400C-4034-4F4F-97F0-DDA761833D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0CE400C-4034-4F4F-97F0-DDA761833D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0D9E025-AE69-4620-99B2-A4DC5D5E2020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0D9E025-AE69-4620-99B2-A4DC5D5E2020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0D9E025-AE69-4620-99B2-A4DC5D5E2020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0D9E025-AE69-4620-99B2-A4DC5D5E2020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2851A836-BA81-45E2-BB7F-D19D026EE66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2851A836-BA81-45E2-BB7F-D19D026EE66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2851A836-BA81-45E2-BB7F-D19D026EE66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2851A836-BA81-45E2-BB7F-D19D026EE66B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A633DEA7-06F4-4A12-875A-39BF4E00FA67}
+	EndGlobalSection
+EndGlobal
