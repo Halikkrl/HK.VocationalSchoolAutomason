@@ -7,8 +7,8 @@ Database: MsSql
 The project is built on an N-Tier Architecture and has a database connection with EF.
 It adheres to the SOLID principles and the DRY principle.
 
-The purpose of the project is to manage student records, teacher and staff information, grading system, and automatic generation of the class schedule for a Vocational School.
-The current stage of the project involves writing services, validation rules, and APIs.
+The aim of the project is to keep Meselek High School Student Registration, Teacher and Employee Information, and to create the Grading System and Curriculum.
+In the current phase, the writing of Services, Validation rules and APIs is completed.
 
 Note: The project is focused on the API part and does not include the frontend. I am currently concentrating solely on the backend portion.
 
@@ -21,7 +21,7 @@ VeriTabanı : MsSql
 Proje N-Katmanlı Mimari üzerine yapılmış olup , EF ile DataBase bağlantısı yapılmıştır.
 SOLID Prensiplerine ve DRY prensibine uyulmuştur.
 
-Projenin amacı Meselek Lisesi Öğrenci Kaydı, Öğretmen ve Çalışan Bilgilerinin tutulması, Not Sistemi ve Ders Programının Otomatik olarak oluşturulması üzerinedir.
-Şuan ki aşaması Service'lerin, Validation kuralların ve Api'lerin yazılmasıdır.
+Projenin amacı Meselek Lisesi Öğrenci Kaydı, Öğretmen ve Çalışan Bilgilerinin tutulması, Not Sistemi ve Ders Programının oluşturulması üzerinedir.
+Şuan ki aşaması Service'lerin, Validation kuralların ve Api'lerin yazımı bitti.
 
 Not: Proje Api üzerinde çalışmaktadır. FrantEnd Kısmını yazmıyorum şuanda tamamen Backend kısmına odaklanmış durumdayım.
