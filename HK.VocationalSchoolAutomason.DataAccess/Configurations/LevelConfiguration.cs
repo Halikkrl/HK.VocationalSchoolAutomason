@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace HK.VocationalSchoolAutomason.DataAccess.Configurations
 {
-    public class LevelConfiguration : IEntityTypeConfiguration<Level>
+    public class LevelConfiguration : IEntityTypeConfiguration<Levels>
     {
-        public void Configure(EntityTypeBuilder<Level> builder)
+        public void Configure(EntityTypeBuilder<Levels> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Name).IsRequired();
-            builder.Property(x => x.Name).HasMaxLength(10);
-            builder.HasIndex(x => x.Name).IsUnique();
+            builder.Property(x => x.LevelName).IsRequired();
+            builder.Property(x => x.LevelName).HasMaxLength(10);
+            builder.HasIndex(x => x.LevelName).IsUnique();
         }
     }
 }

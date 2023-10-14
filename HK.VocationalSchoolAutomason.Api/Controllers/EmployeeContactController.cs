@@ -1,6 +1,5 @@
 ﻿using HK.VocationalSchoolAutomason.Bussiness.Interfaces;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeContact;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Student_has_ParentInformation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HK.VocationalSchoolAutomason.Api.Controllers

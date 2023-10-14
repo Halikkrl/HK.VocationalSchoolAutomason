@@ -8,7 +8,7 @@ namespace HK.VocationalSchoolAutomason.Entities.Domains
 {
     public class Semester : BaseEntity
     {
-        public string Name { get; set; }
+        public string SemesterName { get; set; }
         public List<StudentMajorLevelGroup> StudentMajorLevelGroups { get; set; }
         public List<SemesterWeek> SemesterWeeks { get; set; }
 

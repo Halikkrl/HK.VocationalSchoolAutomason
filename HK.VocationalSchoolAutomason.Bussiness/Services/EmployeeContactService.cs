@@ -5,7 +5,6 @@ using HK.VocationalSchoolAutomason.Bussiness.Interfaces;
 using HK.VocationalSchoolAutomason.Common.ResponsObjects;
 using HK.VocationalSchoolAutomason.DataAccess.UnitOfWork;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeContact;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Parent_Information;
 using HK.VocationalSchoolAutomason.Entities.Domains;
 using System;
 using System.Collections.Generic;

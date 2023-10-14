@@ -8,7 +8,7 @@ namespace HK.VocationalSchoolAutomason.Entities.Domains
 {
     public class Groups : BaseEntity
     {
-        public string Name { get; set; }
+        public string GroupName { get; set; }
         public List<LevelGruopMojor> LevelGruopMojors { get; set; }
 
     }

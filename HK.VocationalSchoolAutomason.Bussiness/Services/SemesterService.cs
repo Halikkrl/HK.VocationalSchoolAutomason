@@ -3,6 +3,7 @@ using FluentValidation;
 using HK.VocationalSchoolAutomason.Bussiness.Extensions;
 using HK.VocationalSchoolAutomason.Bussiness.Interfaces;
 using HK.VocationalSchoolAutomason.Common.ResponsObjects;
+using HK.VocationalSchoolAutomason.DataAccess.Contexts;
 using HK.VocationalSchoolAutomason.DataAccess.UnitOfWork;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.DayDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.SemesterDtos;
@@ -21,7 +22,6 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
         private readonly IMapper _mapper;
         private readonly IValidator<SemesterCreateDto> _createValidator;
         private readonly IValidator<SemesterUpdateDto> _updateValidator;
-
         public SemesterService(IUow uow, IMapper mapper, IValidator<SemesterCreateDto> createValidator, IValidator<SemesterUpdateDto> updateValidator)
         {
             _uow = uow;

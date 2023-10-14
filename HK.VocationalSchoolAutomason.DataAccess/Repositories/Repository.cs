@@ -51,7 +51,7 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Repositories
             _context.Set<T>().Remove(entity);
         }
 
-        public void Update(T entity , T unchanged)
+        public void Update(T entity, T unchanged)
         {
             _context.Entry(unchanged).CurrentValues.SetValues(entity);
         }

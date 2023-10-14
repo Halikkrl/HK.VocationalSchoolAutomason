@@ -8,14 +8,14 @@ namespace HK.VocationalSchoolAutomason.Entities.Domains
 {
     public class StudentContact : BaseEntity
     {
-        public int StudentId { get; set; }
+        public int StudentPKId { get; set; }
         public string City { get; set; }
         public string District { get; set; }
         public string Neighbourhood { get; set; }
         public string Address { get; set; }
-        public string PhoneNumber { get; set; }
-        public string PhoneNumber2 { get; set; }
-        public DateTime DateOfIssue { get; set; }
+        public string ContactPhoneNumber { get; set; }
+        public string ContactPhoneNumber2 { get; set; }
+        public DateTime ContactDateOfIssue { get; set; }
         public Students Students { get; set; }
 
 

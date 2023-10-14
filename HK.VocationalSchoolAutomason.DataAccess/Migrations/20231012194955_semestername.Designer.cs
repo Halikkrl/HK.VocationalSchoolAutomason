@@ -4,6 +4,7 @@ using HK.VocationalSchoolAutomason.DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20231012194955_semestername")]
+    partial class semestername
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -513,6 +516,51 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                     b.ToTable("Majors");
                 });
 
+            modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.Parent_Information", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PArentPhoneNumber")
+                        .HasMaxLength(13)
+                        .HasColumnType("nvarchar(13)");
+
+                    b.Property<DateTime>("ParentDateOfIssue")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("ParentFirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("ParentIdentificationNumber")
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("nvarchar(11)");
+
+                    b.Property<string>("ParentLastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Proximity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id")
+                        .IsUnique();
+
+                    b.HasIndex("ParentIdentificationNumber")
+                        .IsUnique();
+
+                    b.ToTable("Parent_Informations");
+                });
+
             modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.ScheduleInformation", b =>
                 {
                     b.Property<int>("Id")
@@ -660,7 +708,7 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                     b.Property<int>("SemesterId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("StudentId")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalContinuity")
@@ -673,10 +721,32 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                     b.HasIndex("SemesterId");
 
                     b.HasIndex("StudentId", "MajorLevelGroupId", "SemesterId")
-                        .IsUnique()
-                        .HasFilter("[StudentId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("StudentMajorLevelGroups");
+                });
+
+            modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.Student_has_ParentInformation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ParentInformationsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ParentInformationsId");
+
+                    b.HasIndex("StudentsId");
+
+                    b.ToTable("Student_HasParentInformation");
                 });
 
             modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.Students", b =>
@@ -1051,11 +1121,32 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
 
                     b.HasOne("HK.VocationalSchoolAutomason.Entities.Domains.Students", "Students")
                         .WithMany("StudentMajorLevelGroups")
-                        .HasForeignKey("StudentId");
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("LevelGruopMojor");
 
                     b.Navigation("Semester");
+
+                    b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.Student_has_ParentInformation", b =>
+                {
+                    b.HasOne("HK.VocationalSchoolAutomason.Entities.Domains.Parent_Information", "Parent_Information")
+                        .WithMany("Student_HasParentInformation")
+                        .HasForeignKey("ParentInformationsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("HK.VocationalSchoolAutomason.Entities.Domains.Students", "Students")
+                        .WithMany("Student_HasParentInformation")
+                        .HasForeignKey("StudentsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Parent_Information");
 
                     b.Navigation("Students");
                 });
@@ -1176,6 +1267,11 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                     b.Navigation("LevelGruopMojors");
                 });
 
+            modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.Parent_Information", b =>
+                {
+                    b.Navigation("Student_HasParentInformation");
+                });
+
             modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.Semester", b =>
                 {
                     b.Navigation("SemesterWeeks");
@@ -1201,6 +1297,8 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                         .IsRequired();
 
                     b.Navigation("StudentMajorLevelGroups");
+
+                    b.Navigation("Student_HasParentInformation");
                 });
 
             modelBuilder.Entity("HK.VocationalSchoolAutomason.Entities.Domains.WeeklyLessonHours", b =>

@@ -5,14 +5,7 @@ using HK.VocationalSchoolAutomason.Bussiness.Interfaces;
 using HK.VocationalSchoolAutomason.Common.ResponsObjects;
 using HK.VocationalSchoolAutomason.DataAccess.UnitOfWork;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Parent_Information;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Student_has_ParentInformation;
 using HK.VocationalSchoolAutomason.Entities.Domains;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HK.VocationalSchoolAutomason.Bussiness.Services
 {

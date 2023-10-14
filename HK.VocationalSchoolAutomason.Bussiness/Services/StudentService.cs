@@ -30,8 +30,11 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
             var ValidationResult = _createValidator.Validate(dto);
             if(ValidationResult.IsValid)
             {
-                await _uow.GetRepository<Students>().Create(_mapper.Map<Students>(dto));
+                var student = _mapper.Map<Students>(dto);
+                await _uow.GetRepository<Students>().Create(student);
                 await _uow.SaveChanges();
+
+
 
                 return new Response<StudentCreateDto>(ResponseType.Success,dto);
             }

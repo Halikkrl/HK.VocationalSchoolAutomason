@@ -8,7 +8,7 @@ namespace HK.VocationalSchoolAutomason.Entities.Domains
 {
     public class StudentMajorLevelGroup :BaseEntity
     {
-        public int StudentId { get; set; }
+        public int? StudentId { get; set; }
         public int MajorLevelGroupId { get; set; }
         public int SemesterId { get; set; }
         public decimal TotalContinuity { get; set; }

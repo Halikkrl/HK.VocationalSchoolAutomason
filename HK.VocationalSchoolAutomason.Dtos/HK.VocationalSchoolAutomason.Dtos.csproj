@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HK.VocationalSchoolAutomason.DataAccess\HK.VocationalSchoolAutomason.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

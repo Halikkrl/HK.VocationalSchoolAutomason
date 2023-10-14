@@ -23,28 +23,28 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Configurations
 
 
 
-            builder.Property(x =>x.IdentificationNumber).IsRequired();
-            builder.Property(x => x.IdentificationNumber).HasMaxLength(11);
-            builder.HasIndex(x =>x.IdentificationNumber).IsUnique();
+            builder.Property(x =>x.StudentIdentificationNumber).IsRequired();
+            builder.Property(x => x.StudentIdentificationNumber).HasMaxLength(11);
+            builder.HasIndex(x =>x.StudentIdentificationNumber).IsUnique();
 
 
 
-            builder.Property(x =>x.FirstName).IsRequired();
-            builder.Property(x => x.FirstName).HasMaxLength(50);
+            builder.Property(x =>x.StudentFirstName).IsRequired();
+            builder.Property(x => x.StudentFirstName).HasMaxLength(50);
 
 
 
-            builder.Property(x => x.LastName).IsRequired();
-            builder.Property(x => x.LastName).HasMaxLength(50);
+            builder.Property(x => x.StudentLastName).IsRequired();
+            builder.Property(x => x.StudentLastName).HasMaxLength(50);
 
 
 
-            builder.Property(x => x.Number).IsRequired();
-            builder.HasIndex(x => x.Number).IsUnique();
+            builder.Property(x => x.StudentNumber).IsRequired();
+            builder.HasIndex(x => x.StudentNumber).IsUnique();
 
 
 
-            builder.Property(x => x.Gender).IsRequired();
+            builder.Property(x => x.StudentGender).IsRequired();
 
 
 

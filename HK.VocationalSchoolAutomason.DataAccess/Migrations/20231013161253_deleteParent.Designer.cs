@@ -4,6 +4,7 @@ using HK.VocationalSchoolAutomason.DataAccess.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    partial class SchoolContextModelSnapshot : ModelSnapshot
+    [Migration("20231013161253_deleteParent")]
+    partial class deleteParent
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -660,7 +663,7 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                     b.Property<int>("SemesterId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("StudentId")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalContinuity")
@@ -673,8 +676,7 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
                     b.HasIndex("SemesterId");
 
                     b.HasIndex("StudentId", "MajorLevelGroupId", "SemesterId")
-                        .IsUnique()
-                        .HasFilter("[StudentId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("StudentMajorLevelGroups");
                 });
@@ -1051,7 +1053,9 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Migrations
 
                     b.HasOne("HK.VocationalSchoolAutomason.Entities.Domains.Students", "Students")
                         .WithMany("StudentMajorLevelGroups")
-                        .HasForeignKey("StudentId");
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("LevelGruopMojor");
 

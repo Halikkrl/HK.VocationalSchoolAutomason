@@ -27,16 +27,16 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Configurations
 
             builder.Property(sc => sc.Address).HasMaxLength(500);
 
-            builder.Property(sc => sc.PhoneNumber).HasMaxLength(13);
-            builder.Property(sc => sc.PhoneNumber).IsRequired(false);
+            builder.Property(sc => sc.ContactPhoneNumber).HasMaxLength(13);
+            builder.Property(sc => sc.ContactPhoneNumber).IsRequired(false);
 
-            builder.Property(sc => sc.PhoneNumber2).HasMaxLength(13);
-            builder.Property(sc => sc.PhoneNumber2).IsRequired(false);
+            builder.Property(sc => sc.ContactPhoneNumber2).HasMaxLength(13);
+            builder.Property(sc => sc.ContactPhoneNumber2).IsRequired(false);
 
-            builder.Property(sc => sc.DateOfIssue).IsRequired();
+            builder.Property(sc => sc.ContactPhoneNumber).IsRequired();
 
             // StudentContact ile Students arasındaki ilişkiyi tanımlama
-            builder.HasOne(sc => sc.Students).WithOne(s => s.StudentContact).HasForeignKey<StudentContact>(sc => sc.StudentId);
+            builder.HasOne(sc => sc.Students).WithOne(s => s.StudentContact).HasForeignKey<StudentContact>(sc => sc.StudentPKId);
         }
 
         #endregion

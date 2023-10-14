@@ -14,8 +14,6 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new StudentConfiguration());
-            modelBuilder.ApplyConfiguration(new Parent_InformationConfiguration());
-            modelBuilder.ApplyConfiguration(new Student_has_ParentInformationConfiguration());
             modelBuilder.ApplyConfiguration(new StudentContactConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new EmployeeContactConfiguration());
@@ -42,14 +40,12 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Contexts
         }
 
         public DbSet<Students> Students { get; set; }
-        public DbSet<Parent_Information> Parent_Informations { get; set; }
-        public DbSet<Student_has_ParentInformation> Student_HasParentInformation { get; set; }
         public DbSet<StudentContact> StudentContacts { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeContact> EmployeeContacts { get; set; }
         public DbSet<EmployeeInformation> EmployeeInformations { get; set; }
         public DbSet<Majors> Majors { get; set; }
-        public DbSet<Level> Levels { get; set; }
+        public DbSet<Levels> Levels { get; set; }
         public DbSet<Groups> Groups { get; set; }
         public DbSet<Semester> Semesters { get; set; }
         public DbSet<LevelGruopMojor> LevelGruopMojors { get; set; }

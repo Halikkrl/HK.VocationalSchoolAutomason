@@ -13,7 +13,7 @@ namespace HK.VocationalSchoolAutomason.Entities.Domains
         public int GruopId { get; set; }
 
         public Majors Majors { get; set; }
-        public Level Level { get; set; }
+        public Levels Level { get; set; }
         public Groups Groups { get; set; }
 
         public List<StudentMajorLevelGroup> StudentMajorLevelGroups { get; set; }

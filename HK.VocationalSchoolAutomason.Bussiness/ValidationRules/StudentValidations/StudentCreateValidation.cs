@@ -7,22 +7,22 @@ public class StudentCreateValidation : AbstractValidator<StudentCreateDto>
 {
     public StudentCreateValidation()
     {
-        RuleFor(x => x.IdentificationNumber)
+        RuleFor(x => x.StudentIdentificationNumber)
             .NotEmpty().WithMessage("Kimlik numarası boş olamaz.")
             .Length(11).WithMessage("Kimlik numarası 11 karakter uzunluğunda olmalıdır.");
 
-        RuleFor(x => x.FirstName)
+        RuleFor(x => x.StudentFirstName)
             .NotEmpty().WithMessage("Ad boş olamaz.")
             .MaximumLength(50).WithMessage("Ad en fazla 50 karakter uzunluğunda olmalıdır.");
 
-        RuleFor(x => x.LastName)
+        RuleFor(x => x.StudentLastName)
             .NotEmpty().WithMessage("Soyad boş olamaz.")
             .MaximumLength(50).WithMessage("Soyad en fazla 50 karakter uzunluğunda olmalıdır.");
 
-        RuleFor(x => x.Number)
+        RuleFor(x => x.StudentNumber)
             .GreaterThan(0).WithMessage("Numara pozitif bir değer olmalıdır.");
 
-        RuleFor(x => x.Gender)
+        RuleFor(x => x.StudentGender)
             .NotEmpty().WithMessage("Cinsiyet boş olamaz.");
 
         RuleFor(x => x.DateOfBirthDay)

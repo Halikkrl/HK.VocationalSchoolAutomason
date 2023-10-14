@@ -1,8 +1,6 @@
 ﻿using HK.VocationalSchoolAutomason.Common.ResponsObjects;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.DayDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Parent_Information;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentContactDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentDtos;
+using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentRegistrationDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +11,11 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Interfaces
 {
     public interface IStudentRegistration
     {
-        Task<IResponse<List<StudentListDto>>> GetAllStudents();
-        Task<IResponse<DayCreateDto>> Create(DayCreateDto dto);
-        Task<IResponse<IDto>> GetById<IDto>(int id);
-        Task<IResponse> Remove(int id);
-        Task<IResponse<DayUpdateDto>> Update(DayUpdateDto dto);
+
+        IQueryable<StudentRegistrationListDto> GetAllStudents();
+        Task<IResponse<StudentRegistrationCreateDto>> Create(StudentRegistrationCreateDto dto);
+        //Task<IResponse> Remove(int id);
+        //Task<IResponse<StudentregistrationUpdateDto>> Update(StudentregistrationUpdateDto dto);
+
     }
 }

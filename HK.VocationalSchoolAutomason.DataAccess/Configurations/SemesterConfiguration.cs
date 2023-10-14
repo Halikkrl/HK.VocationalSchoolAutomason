@@ -14,9 +14,9 @@ namespace HK.VocationalSchoolAutomason.DataAccess.Configurations
         public void Configure(EntityTypeBuilder<Semester> builder)
         {
             builder.HasKey(e => e.Id);
-            builder.Property(e => e.Name).IsRequired();
-            builder.HasIndex(x => x.Name).IsUnique();
-            builder.Property(x => x.Name).HasMaxLength(128);
+            builder.Property(e => e.SemesterName).IsRequired();
+            builder.HasIndex(x => x.SemesterName).IsUnique();
+            builder.Property(x => x.SemesterName).HasMaxLength(128);
         }
     }
 }

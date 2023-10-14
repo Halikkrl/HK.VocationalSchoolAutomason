@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace HK.VocationalSchoolAutomason.Entities.Domains
 {
-    public class Level : BaseEntity
+    public class Levels : BaseEntity
     {
-        public string Name { get; set; }
+        public string LevelName { get; set; }
         public List<LevelGruopMojor> LevelGruopMojors { get; set; }
     }
 }

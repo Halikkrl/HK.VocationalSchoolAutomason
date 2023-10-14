@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using HK.VocationalSchoolAutomason.DataAccess.Migrations;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.BranchDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.ClassLessonDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.ClassRoomsDtos;
@@ -18,23 +17,17 @@ using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LessonDayandTimeInformationDt
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LevelDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LevelGroupMajorDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.MajorDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Parent_Information;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.ScheduleInformationDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.SemesterDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.SemesterWeekDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Student_has_ParentInformation;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentContactDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentMajorLevelGroupDtos;
+using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentRegistrationDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.WeeklyLessonHoursDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.WeeklyScheduleDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.WeeksDtos;
 using HK.VocationalSchoolAutomason.Entities.Domains;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HK.VocationalSchoolAutomason.Bussiness.Mapping.AutoMapper
 {
@@ -42,17 +35,12 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Mapping.AutoMapper
     {
         public SchoolProfile()
         {
-            CreateMap<Students,StudentListDto>().ReverseMap();
-            CreateMap<Students,StudentUpdateDto>().ReverseMap();
-            CreateMap<Students,StudentCreateDto>().ReverseMap();
-            CreateMap<StudentListDto,StudentUpdateDto>().ReverseMap();
+            CreateMap<Students, StudentListDto>().ReverseMap();
+            CreateMap<Students, StudentUpdateDto>().ReverseMap();
+            CreateMap<Students, StudentCreateDto>().ReverseMap();
+            CreateMap<StudentListDto, StudentUpdateDto>().ReverseMap();
 
 
-
-            CreateMap<Parent_Information, Parent_InformationList>().ReverseMap();
-            CreateMap<Parent_Information, Parent_InformationCreate>().ReverseMap();
-            CreateMap<Parent_Information, Parent_InformationUpdate>().ReverseMap();
-            CreateMap<Parent_InformationList, Parent_InformationUpdate>().ReverseMap();
 
 
 
@@ -60,12 +48,6 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Mapping.AutoMapper
             CreateMap<StudentContact, StudentContactCreateDto>().ReverseMap();
             CreateMap<StudentContact, StudentContactUpdateDto>().ReverseMap();
             CreateMap<StudentContactListDto, StudentContactUpdateDto>().ReverseMap();
-
-
-            CreateMap<Student_has_ParentInformation, Student_has_ParentInformationList>().ReverseMap();
-            CreateMap<Student_has_ParentInformation, Student_has_ParentInformationCreate>().ReverseMap();
-            CreateMap<Student_has_ParentInformation, Student_has_ParentInformationUpdate>().ReverseMap();
-            CreateMap<Student_has_ParentInformationList, Student_has_ParentInformationUpdate>().ReverseMap();
 
 
 
@@ -121,9 +103,9 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Mapping.AutoMapper
             CreateMap<MajorListDto, MajorUpdateDto>().ReverseMap();
 
 
-            CreateMap<Level, LevelListDto>().ReverseMap();
-            CreateMap<Level, LevelUpdateDto>().ReverseMap();
-            CreateMap<Level, LevelCreateDto>().ReverseMap();
+            CreateMap<Levels, LevelListDto>().ReverseMap();
+            CreateMap<Levels, LevelUpdateDto>().ReverseMap();
+            CreateMap<Levels, LevelCreateDto>().ReverseMap();
             CreateMap<LevelListDto, LevelUpdateDto>().ReverseMap();
 
 
@@ -233,6 +215,49 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Mapping.AutoMapper
             CreateMap<ScheduleInformation, ScheduleInformationListDto>().ReverseMap();
             CreateMap<ScheduleInformation, ScheduleInformationUpdateDto>().ReverseMap();
             CreateMap<ScheduleInformationListDto, ScheduleInformationUpdateDto>().ReverseMap();
+
+
+            CreateMap<Students, StudentRegistrationCreateDto>()
+                .ForMember(x => x.StudentFirstName, y => y.MapFrom(z => z.StudentFirstName))
+                .ForMember(x => x.StudentLastName, y => y.MapFrom(z => z.StudentLastName))
+                .ForMember(x => x.StudentNumber, y => y.MapFrom(z => z.StudentNumber))
+                .ForMember(x => x.StudentIdentificationNumber, y => y.MapFrom(z => z.StudentIdentificationNumber))
+                .ForMember(x => x.StudentGender, y => y.MapFrom(z => z.StudentGender))
+                .ForMember(x => x.DateOfBirthDay, y => y.MapFrom(z => z.DateOfBirthDay))
+                .ForMember(x => x.IsActive, y => y.MapFrom(z => z.IsActive))
+                .ForMember(x => x.RepeatingAGrade, y => y.MapFrom(z => z.RepeatingAGrade))
+                .ForMember(x => x.Photo, y => y.MapFrom(z => z.Photo))
+                .ForMember(x => x.DateOfIssue, y => y.MapFrom(z => z.DateOfIssue))
+                .ForMember(x => x.RegistrationYear, y => y.MapFrom(z => z.RegistrationYear))
+                .ReverseMap();
+
+
+
+            CreateMap<StudentContact, StudentRegistrationCreateDto>()
+                .ForMember(x => x.Address, y => y.MapFrom(z => z.Address))
+                .ForMember(x => x.StudentPKId, y => y.MapFrom(z => z.StudentPKId))
+                .ForMember(x => x.City, y => y.MapFrom(z => z.City))
+                .ForMember(x => x.District, y => y.MapFrom(z => z.District))
+                .ForMember(x => x.Neighbourhood, y => y.MapFrom(z => z.Neighbourhood))
+                .ForMember(x => x.ContactPhoneNumber, y => y.MapFrom(z => z.ContactPhoneNumber))
+                .ForMember(x => x.ContactPhoneNumber2, y => y.MapFrom(z => z.ContactPhoneNumber2))
+                .ForMember(x => x.ContactDateOfIssue, y => y.MapFrom(z => z.ContactDateOfIssue))
+                .ReverseMap();
+
+            CreateMap<StudentMajorLevelGroup, StudentRegistrationCreateDto>()
+                .ForMember(x => x.StudentId, y => y.MapFrom(z => z.StudentId))
+                .ForMember(x => x.MajorLevelGroupId, y => y.MapFrom(z => z.MajorLevelGroupId))
+                .ForMember(x => x.SemesterId, y => y.MapFrom(z => z.SemesterId))
+                .ForMember(x => x.TotalCominity, y => y.MapFrom(z => z.TotalContinuity))
+                .ReverseMap();
+
+
+
+            CreateMap<Students, StudentregistrationUpdateDto>().ReverseMap();
+            CreateMap<StudentContact, StudentregistrationUpdateDto>().ReverseMap();
+            CreateMap<StudentMajorLevelGroup, StudentregistrationUpdateDto>().ReverseMap();
+
+
         }
     }
 }

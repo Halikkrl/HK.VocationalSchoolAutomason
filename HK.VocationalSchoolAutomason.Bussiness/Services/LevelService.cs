@@ -35,7 +35,7 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
             var ValidationResult = _createValidator.Validate(dto);
             if (ValidationResult.IsValid)
             {
-                await _uow.GetRepository<Level>().Create(_mapper.Map<Level>(dto));
+                await _uow.GetRepository<Levels>().Create(_mapper.Map<Levels>(dto));
                 await _uow.SaveChanges();
 
                 return new Response<LevelCreateDto>(ResponseType.Success, dto);
@@ -52,14 +52,14 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
 
         public async Task<IResponse<List<LevelListDto>>> GetAllStudents()
         {
-            var data = _mapper.Map<List<LevelListDto>>(await _uow.GetRepository<Level>().GetAll());
+            var data = _mapper.Map<List<LevelListDto>>(await _uow.GetRepository<Levels>().GetAll());
 
             return new Response<List<LevelListDto>>(ResponseType.Success, data);
         }
 
         public async Task<IResponse<IDto>> GetById<IDto>(int id)
         {
-            var data = _mapper.Map<IDto>(await _uow.GetRepository<Level>().GetByFilter(x => x.Id == id));
+            var data = _mapper.Map<IDto>(await _uow.GetRepository<Levels>().GetByFilter(x => x.Id == id));
             if (data == null)
             {
                 return new Response<IDto>(ResponseType.NotFound, $"{id} ait data bulunamadı");
@@ -69,10 +69,10 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
 
         public async Task<IResponse> Remove(int id)
         {
-            var deletedEntity = await _uow.GetRepository<Level>().GetByFilter(x => x.Id == id);
+            var deletedEntity = await _uow.GetRepository<Levels>().GetByFilter(x => x.Id == id);
             if (deletedEntity != null)
             {
-                _uow.GetRepository<Level>().Remove(deletedEntity);
+                _uow.GetRepository<Levels>().Remove(deletedEntity);
                 await _uow.SaveChanges();
                 return new Response(ResponseType.Success);
             }
@@ -87,10 +87,10 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
             var result = _updateValidator.Validate(dto);
             if (result.IsValid)
             {
-                var updatedEntity = await _uow.GetRepository<Level>().Find(dto.Id);
+                var updatedEntity = await _uow.GetRepository<Levels>().Find(dto.Id);
                 if (updatedEntity != null)
                 {
-                    _uow.GetRepository<Level>().Update(_mapper.Map<Level>(dto), updatedEntity);
+                    _uow.GetRepository<Levels>().Update(_mapper.Map<Levels>(dto), updatedEntity);
                     _uow.SaveChanges();
 
                     return new Response<LevelUpdateDto>(ResponseType.Success, dto);

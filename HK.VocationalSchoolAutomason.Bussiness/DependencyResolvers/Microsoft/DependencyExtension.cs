@@ -21,14 +21,12 @@ using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.LessonDayandTimeInf
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.LevelGroupMajorValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.LevelValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.MajorValidation;
-using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.Parent_InformationValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.ScheduleInformationValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.SemesterValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.SemesterWeekValidation;
-using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.Student_has_ParentInformation;
-using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.Student_has_ParentInformationValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.StudentContactValidations;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.StudentMajorLevelGroupValidation;
+using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.StudentRegistrationValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.StudentValidations;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.WeeklyLessonHoursValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.WeeklyScheduleValidation;
@@ -53,14 +51,13 @@ using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LessonDayandTimeInformationDt
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LevelDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LevelGroupMajorDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.MajorDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Parent_Information;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.ScheduleInformationDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.SemesterDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.SemesterWeekDtos;
-using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.Student_has_ParentInformation;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentContactDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentMajorLevelGroupDtos;
+using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentRegistrationDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.WeeklyLessonHoursDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.WeeklyScheduleDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.WeeksDtos;
@@ -92,8 +89,6 @@ namespace HK.VocationalSchoolAutomason.Bussiness.DependencyResolvers.Microsoft
             services.AddScoped<IUow,Uow>();
             services.AddScoped<IStudentService,StudentService>();
             services.AddScoped<IStudentContactService,StudentContactService>();
-            services.AddScoped<IParent_Information,Parent_InformationService>();
-            services.AddScoped<IStudent_has_ParentInformation,Student_has_ParentInformationService>();
             services.AddScoped<IEmployee,EmployeeService>();
             services.AddScoped<IEmployeeInformation,EmployeeInformationService>();
             services.AddScoped<IEmployeeContact, EmployeeContactService>();
@@ -119,6 +114,7 @@ namespace HK.VocationalSchoolAutomason.Bussiness.DependencyResolvers.Microsoft
             services.AddScoped<IStudentMajorLevelGroup, StudentMajorLevelGroupService>();
             services.AddScoped<IWeeklySchedule, WeeklyScheduleService>();
             services.AddScoped<IScheduleInformation, ScheduleInformationService>();
+            services.AddScoped<IStudentRegistration, StudentRegistrationService>();
 
 
             services.AddTransient<IValidator<StudentCreateDto>,StudentCreateValidation>();
@@ -127,12 +123,6 @@ namespace HK.VocationalSchoolAutomason.Bussiness.DependencyResolvers.Microsoft
 
             services.AddTransient<IValidator<StudentContactCreateDto>, StudentContactCreateValidation>();
             services.AddTransient<IValidator<StudentContactUpdateDto>, StudentContactUpdateValidation>();
-
-            services.AddTransient<IValidator<Parent_InformationCreate>, Parent_InformationCreateValidation>();
-            services.AddTransient<IValidator<Parent_InformationUpdate>, Parent_InformationUpdateValidation>();
-
-            services.AddTransient<IValidator<Student_has_ParentInformationCreate>, Student_has_ParentInformationCreateValidation>();
-            services.AddTransient<IValidator<Student_has_ParentInformationUpdate>, Student_has_ParentInformationUpdateValidation>();
 
             services.AddTransient<IValidator<EmployeeCreateDto>, EmployeeCreateValidation>();
             services.AddTransient<IValidator<EmployeeUpdateDto>, EmployeeUpdateValidation>();
@@ -208,6 +198,10 @@ namespace HK.VocationalSchoolAutomason.Bussiness.DependencyResolvers.Microsoft
 
             services.AddTransient<IValidator<ScheduleInformationCreateDto>, ScheduleInformationCreateValidation>();
             services.AddTransient<IValidator<ScheduleInformationUpdateDto>, ScheduleInformationUpdateValidation>();
+
+            services.AddTransient<IValidator<StudentRegistrationCreateDto>, StudentRegistrationCreateValidation>();
+            services.AddTransient<IValidator<StudentregistrationUpdateDto>, StudentregistrationUpdateValidation>();
+
         }
     }
 }

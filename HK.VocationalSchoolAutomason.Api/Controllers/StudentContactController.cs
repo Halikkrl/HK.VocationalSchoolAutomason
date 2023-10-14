@@ -36,21 +36,21 @@ namespace HK.VocationalSchoolAutomason.Api.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromQuery] StudentContactCreateDto student)
-        {
-            var response = await _contactService.Create(student);
-            return Created(string.Empty, response);
+        //[HttpPost]
+        //public async Task<IActionResult> CreateAsync([FromQuery] StudentContactCreateDto student)
+        //{
+        //    var response = await _contactService.Create(student);
+        //    return Created(string.Empty, response);
 
-        }
+        //}
 
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Remove(int id)
-        {
-            var response = await _contactService.Remove(id);
-            return Ok(response);
-        }
+        //[HttpDelete("{id}")]
+        //public async Task<IActionResult> Remove(int id)
+        //{
+        //    var response = await _contactService.Remove(id);
+        //    return Ok(response);
+        //}
 
 
         [HttpPut]
