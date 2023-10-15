@@ -25,3 +25,16 @@ Projenin amacı Meselek Lisesi Öğrenci Kaydı, Öğretmen ve Çalışan Bilgil
 Şuan ki aşaması Service'lerin, Validation kuralların ve Api'lerin yazımı bitti.
 
 Not: Proje Api üzerinde çalışmaktadır. FrantEnd Kısmını yazmıyorum şuanda tamamen Backend kısmına odaklanmış durumdayım.
+
+Database Diagram Görüntüsü: 
+![Ekran görüntüsü 2023-10-15 144455](https://github.com/Halikkrl/HK.VocationalSchoolAutomason/assets/138401097/c7862c7d-b58b-40a6-9dcc-1bc994d7eff9)
+
+Çoklu Tablo Listeleme :
+![Ekran görüntüsü 2023-10-15 144731](https://github.com/Halikkrl/HK.VocationalSchoolAutomason/assets/138401097/df5bfa2b-6140-4b77-b1b3-71d90974d105)
+
+Çoklu Tablo Create ; 
+![Ekran görüntüsü 2023-10-15 144848](https://github.com/Halikkrl/HK.VocationalSchoolAutomason/assets/138401097/93408072-c48a-4ec9-9ba4-53d44fef25e2)
+![Ekran görüntüsü 2023-10-15 144630](https://github.com/Halikkrl/HK.VocationalSchoolAutomason/assets/138401097/7ce11132-6f3f-47bf-ad07-2d09bd84bc95)
+
+
+
