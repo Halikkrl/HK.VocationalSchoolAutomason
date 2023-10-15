@@ -4,6 +4,7 @@ using HK.VocationalSchoolAutomason.Bussiness.Extensions;
 using HK.VocationalSchoolAutomason.Bussiness.Interfaces;
 using HK.VocationalSchoolAutomason.Common.ResponsObjects;
 using HK.VocationalSchoolAutomason.DataAccess.Contexts;
+using HK.VocationalSchoolAutomason.DataAccess.Migrations;
 using HK.VocationalSchoolAutomason.DataAccess.UnitOfWork;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.DayDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LevelGroupMajorDtos;
@@ -71,8 +72,11 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
         {
             var joins = (from generalStudent in _context.StudentMajorLevelGroups
 
+                         join _LGM in _context.LevelGruopMojors
+                         on generalStudent.MajorLevelGroupId equals _LGM.Id
+
                          join _student in _context.Students
-                         on generalStudent.Id equals _student.Id into listStudent
+                         on generalStudent.StudentId equals _student.Id into listStudent
 
 
                          from list in listStudent.DefaultIfEmpty()
@@ -80,25 +84,29 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
                          select new StudentRegistrationListDto
                          {
                              Id = generalStudent.Id,
-                             StudentFirstName = generalStudent.Students.StudentFirstName,
-                             StudentLastName = generalStudent.Students.StudentLastName,
-                             StudentIdentificationNumber = generalStudent.Students.StudentIdentificationNumber,
-                             StudentNumber = generalStudent.Students.StudentNumber,
-                             StudentGender = generalStudent.Students.StudentGender,
-                             GroupName = generalStudent.LevelGruopMojor.Groups.GroupName,
-                             LevelName = generalStudent.LevelGruopMojor.Level.LevelName,
-                             MajorName = generalStudent.LevelGruopMojor.Majors.MajorName,
+                             StudentFirstName = list.StudentFirstName,
+                             StudentLastName = list.StudentLastName,
+                             StudentIdentificationNumber = list.StudentIdentificationNumber,
+                             StudentNumber = list.StudentNumber,
+                             StudentGender = list.StudentGender,
+                             
+
+                             GroupName = _LGM.Groups.GroupName,
+                             LevelName = _LGM.Level.LevelName,
+                             MajorName = _LGM.Majors.MajorName,
                              SemesterName = generalStudent.Semester.SemesterName,
 
                              StudentContact = new StudentContact
                              {
-                                 Id = generalStudent.Students.StudentContact.Id,
-                                 StudentPKId = generalStudent.Students.StudentContact.StudentPKId,
-                                 City = generalStudent.Students.StudentContact.City,
-                                 Address = generalStudent.Students.StudentContact.Address,
-                                 District = generalStudent.Students.StudentContact.District,
-                                 Neighbourhood = generalStudent.Students.StudentContact.Neighbourhood,
-
+                                 Id = list.StudentContact.Id,
+                                 StudentPKId = list.StudentContact.StudentPKId,
+                                 City = list.StudentContact.City,
+                                 Address = list.StudentContact.Address,
+                                 District = list.StudentContact.District,
+                                 Neighbourhood = list.StudentContact.Neighbourhood,
+                                 ContactPhoneNumber = list.StudentContact.ContactPhoneNumber,
+                                 ContactPhoneNumber2 = list.StudentContact.ContactPhoneNumber2,
+                                 
                              }
                              
 
@@ -108,5 +116,27 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Services
             return joins.AsQueryable();
         }
 
+        public async Task<IResponse> Remove(int id)
+        {
+            var deletedEntity = await _uow.GetRepository<StudentMajorLevelGroup>().GetByFilter(x => x.Id == id);
+
+
+
+
+            if (deletedEntity != null)
+            {
+                _uow.GetRepository<StudentMajorLevelGroup>().Remove(deletedEntity);
+                await _uow.SaveChanges();
+                var student = await _uow.GetRepository<Students>().GetByFilter(x => x.Id == deletedEntity.StudentId);
+                _uow.GetRepository<Students>().Remove(student);
+                await _uow.SaveChanges();
+
+                return new Response(ResponseType.Success);
+            }
+            else
+            {
+                return new Response(ResponseType.NotFound, $"{id} ye ait data bulunamadı");
+            }
+        }
     }
 }

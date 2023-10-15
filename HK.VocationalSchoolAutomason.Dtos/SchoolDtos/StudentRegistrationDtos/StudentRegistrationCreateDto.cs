@@ -17,8 +17,8 @@ namespace HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentRegistrationDtos
         public byte[] Photo { get; set; }
         public bool IsActive { get; set; }
         public string RepeatingAGrade { get; set; }
-        public DateTime DateOfIssue { get; set; } 
-        public DateTime RegistrationYear { get; set; } 
+        public DateTime DateOfIssue { get; set; }  = DateTime.UtcNow;
+        public DateTime RegistrationYear { get; set; } = DateTime.UtcNow;
 
 
 
@@ -29,13 +29,13 @@ namespace HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentRegistrationDtos
         public string Address { get; set; }
         public string ContactPhoneNumber { get; set; }
         public string ContactPhoneNumber2 { get; set; }
-        public DateTime ContactDateOfIssue { get; set; }
+        public DateTime ContactDateOfIssue { get; set; } = DateTime.UtcNow;
 
 
         public int? StudentId { get; set; }
         public int MajorLevelGroupId { get; set; }
         public int SemesterId { get; set; }
-        public int TotalCominity { get; set; } 
+        public int TotalCominity { get; set; } = 0;
 
     }
 }

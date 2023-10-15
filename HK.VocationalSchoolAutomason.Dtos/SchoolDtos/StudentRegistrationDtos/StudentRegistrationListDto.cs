@@ -27,11 +27,6 @@ namespace HK.VocationalSchoolAutomason.Dtos.SchoolDtos.StudentRegistrationDtos
 
 
 
-
-        internal int MajorId { get; set; }
-        internal int LevelId { get; set; }
-        internal int GruopId { get; set; }
-
         public string SemesterName { get; set; }
 
 

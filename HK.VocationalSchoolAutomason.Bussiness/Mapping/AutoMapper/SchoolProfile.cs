@@ -11,6 +11,7 @@ using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDutyBranchDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDutyDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeInformationDtos;
+using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeRegistrationDto;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.GradeSystemDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.GroupDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LessonDayandTimeInformationDtos;
@@ -217,45 +218,24 @@ namespace HK.VocationalSchoolAutomason.Bussiness.Mapping.AutoMapper
             CreateMap<ScheduleInformationListDto, ScheduleInformationUpdateDto>().ReverseMap();
 
 
-            CreateMap<Students, StudentRegistrationCreateDto>()
-                .ForMember(x => x.StudentFirstName, y => y.MapFrom(z => z.StudentFirstName))
-                .ForMember(x => x.StudentLastName, y => y.MapFrom(z => z.StudentLastName))
-                .ForMember(x => x.StudentNumber, y => y.MapFrom(z => z.StudentNumber))
-                .ForMember(x => x.StudentIdentificationNumber, y => y.MapFrom(z => z.StudentIdentificationNumber))
-                .ForMember(x => x.StudentGender, y => y.MapFrom(z => z.StudentGender))
-                .ForMember(x => x.DateOfBirthDay, y => y.MapFrom(z => z.DateOfBirthDay))
-                .ForMember(x => x.IsActive, y => y.MapFrom(z => z.IsActive))
-                .ForMember(x => x.RepeatingAGrade, y => y.MapFrom(z => z.RepeatingAGrade))
-                .ForMember(x => x.Photo, y => y.MapFrom(z => z.Photo))
-                .ForMember(x => x.DateOfIssue, y => y.MapFrom(z => z.DateOfIssue))
-                .ForMember(x => x.RegistrationYear, y => y.MapFrom(z => z.RegistrationYear))
-                .ReverseMap();
-
-
-
-            CreateMap<StudentContact, StudentRegistrationCreateDto>()
-                .ForMember(x => x.Address, y => y.MapFrom(z => z.Address))
-                .ForMember(x => x.StudentPKId, y => y.MapFrom(z => z.StudentPKId))
-                .ForMember(x => x.City, y => y.MapFrom(z => z.City))
-                .ForMember(x => x.District, y => y.MapFrom(z => z.District))
-                .ForMember(x => x.Neighbourhood, y => y.MapFrom(z => z.Neighbourhood))
-                .ForMember(x => x.ContactPhoneNumber, y => y.MapFrom(z => z.ContactPhoneNumber))
-                .ForMember(x => x.ContactPhoneNumber2, y => y.MapFrom(z => z.ContactPhoneNumber2))
-                .ForMember(x => x.ContactDateOfIssue, y => y.MapFrom(z => z.ContactDateOfIssue))
-                .ReverseMap();
-
-            CreateMap<StudentMajorLevelGroup, StudentRegistrationCreateDto>()
-                .ForMember(x => x.StudentId, y => y.MapFrom(z => z.StudentId))
-                .ForMember(x => x.MajorLevelGroupId, y => y.MapFrom(z => z.MajorLevelGroupId))
-                .ForMember(x => x.SemesterId, y => y.MapFrom(z => z.SemesterId))
-                .ForMember(x => x.TotalCominity, y => y.MapFrom(z => z.TotalContinuity))
-                .ReverseMap();
-
+            CreateMap<Students, StudentRegistrationCreateDto>().ReverseMap();
+            CreateMap<StudentContact, StudentRegistrationCreateDto>().ReverseMap();
+            CreateMap<StudentMajorLevelGroup, StudentRegistrationCreateDto>().ReverseMap();
 
 
             CreateMap<Students, StudentregistrationUpdateDto>().ReverseMap();
             CreateMap<StudentContact, StudentregistrationUpdateDto>().ReverseMap();
             CreateMap<StudentMajorLevelGroup, StudentregistrationUpdateDto>().ReverseMap();
+
+
+
+            CreateMap<Employee, EmployeeRegistrationCreateDto>().ReverseMap();
+            CreateMap<EmployeeContact, EmployeeRegistrationCreateDto>().ReverseMap();
+            CreateMap<EmployeeInformation, EmployeeRegistrationCreateDto>().ReverseMap();
+            CreateMap<EmployeeDuty, EmployeeRegistrationCreateDto>().ReverseMap();
+            CreateMap<EmployeeDutyBranch, EmployeeRegistrationCreateDto>().ReverseMap();
+
+
 
 
         }

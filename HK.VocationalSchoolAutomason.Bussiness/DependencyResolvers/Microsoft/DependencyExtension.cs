@@ -14,6 +14,7 @@ using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.EmployeeContactVali
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.EmployeeDutyBranchValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.EmployeeDutyValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.EmployeeInformationValidation;
+using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.EmployeeREgistrationValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.EmployeeValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.GradeSystemValidation;
 using HK.VocationalSchoolAutomason.Bussiness.ValidationRules.GroupValidation;
@@ -45,6 +46,7 @@ using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDutyBranchDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeDutyDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeInformationDtos;
+using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.EmployeeRegistrationDto;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.GradeSystemDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.GroupDtos;
 using HK.VocationalSchoolAutomason.Dtos.SchoolDtos.LessonDayandTimeInformationDtos;
@@ -115,6 +117,7 @@ namespace HK.VocationalSchoolAutomason.Bussiness.DependencyResolvers.Microsoft
             services.AddScoped<IWeeklySchedule, WeeklyScheduleService>();
             services.AddScoped<IScheduleInformation, ScheduleInformationService>();
             services.AddScoped<IStudentRegistration, StudentRegistrationService>();
+            services.AddScoped<IEmployeeInformationAll, EmployeeRegistrationAllService>();
 
 
             services.AddTransient<IValidator<StudentCreateDto>,StudentCreateValidation>();
@@ -200,7 +203,9 @@ namespace HK.VocationalSchoolAutomason.Bussiness.DependencyResolvers.Microsoft
             services.AddTransient<IValidator<ScheduleInformationUpdateDto>, ScheduleInformationUpdateValidation>();
 
             services.AddTransient<IValidator<StudentRegistrationCreateDto>, StudentRegistrationCreateValidation>();
-            services.AddTransient<IValidator<StudentregistrationUpdateDto>, StudentregistrationUpdateValidation>();
+            //services.AddTransient<IValidator<StudentregistrationUpdateDto>, StudentregistrationUpdateValidation>();
+
+            services.AddTransient<IValidator<EmployeeRegistrationCreateDto>, EmployeeREgistrationCreateValidation>();
 
         }
     }

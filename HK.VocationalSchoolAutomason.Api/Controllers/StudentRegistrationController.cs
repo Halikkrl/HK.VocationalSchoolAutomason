@@ -32,5 +32,15 @@ namespace HK.VocationalSchoolAutomason.Api.Controllers
 
         }
 
+
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Remove(int id)
+        {
+            var response = await _service.Remove(id);
+            return Ok(response);
+        }
+
+
     }
 }
